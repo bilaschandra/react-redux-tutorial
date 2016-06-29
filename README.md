@@ -52,12 +52,12 @@ Redux can be broken down into the following:
 
 Example:
 // The action creator is just a function...
-var actionCreator = function() {
+`var actionCreator = function() {
     // ...that creates an action (yeah, the name action creator is pretty obvious now) and returns it
     return {
         type: 'AN_ACTION'
     }
-}
+}`
 
 
 – reducer: decides how to change a state after receiving an action, and thus can be considered the entrance of a state change. A reducer is comprised of functions, and it changes states by taking an action as an argument, in which it then returns a new state.
@@ -65,7 +65,7 @@ var actionCreator = function() {
 
 Example:
 - Actions describe the fact that something happened, but don’t specify how the application’s state changes in response. This is the job of a reducer.
-{
+`{
   visibilityFilter: 'SHOW_ALL',
   todos: [
     {
@@ -77,7 +77,7 @@ Example:
       completed: false
     }
   ]
-}
+}`
 
 ** combineReducers(reducers)
 - The combineReducers helper function turns an object whose values are different reducing functions into a single reducing function you can pass to createStore.
@@ -85,14 +85,14 @@ Example:
 - The resulting reducer calls every child reducer, and gathers their results into a single state object. The shape of the state object matches the keys of the passed reducers.
 
 Example:
-import { createStore, combineReducers } from 'redux'
+`import { createStore, combineReducers } from 'redux'
 
 var reducer = combineReducers({
     user: userReducer,
     items: itemsReducer
 })
 
-var store = createStore(reducer)
+var store = createStore(reducer)`
 
 
 ***Note that:

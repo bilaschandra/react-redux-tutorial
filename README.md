@@ -45,27 +45,29 @@ For example, in a TODO list app, when we create a new todo item, we actually cha
 How does Redux Work?
 
 Redux can be broken down into the following:
-– store: manages the states. Mainly there is a dispatch method to dispatch an action. In a Redux app, you can obtain its states via store.getState()
-– middleware: the middleman between a store.dispatch() and a reducer. Its purpose is to intercept an action that has been dispatched, and modify or even cancel the action before it reaches the reducer.
+– store: manages the states. Mainly there is a dispatch method to dispatch an action. In a Redux app, you can obtain its states via `store.getState()`
+– middleware: the middleman between a `store.dispatch()` and a reducer. Its purpose is to intercept an action that has been dispatched, and modify or even cancel the action before it reaches the reducer.
 
 – action: a simple, plain JavaScript object. An action can also be considered as a command to change a state.
 
 Example:
+```
 // The action creator is just a function...
-`var actionCreator = function() {
+var actionCreator = function() {
     // ...that creates an action (yeah, the name action creator is pretty obvious now) and returns it
     return {
         type: 'AN_ACTION'
     }
-}`
-
+}
+```
 
 – reducer: decides how to change a state after receiving an action, and thus can be considered the entrance of a state change. A reducer is comprised of functions, and it changes states by taking an action as an argument, in which it then returns a new state.
 
 
 Example:
 - Actions describe the fact that something happened, but don’t specify how the application’s state changes in response. This is the job of a reducer.
-`{
+```
+{
   visibilityFilter: 'SHOW_ALL',
   todos: [
     {
@@ -77,7 +79,8 @@ Example:
       completed: false
     }
   ]
-}`
+}
+```
 
 ** combineReducers(reducers)
 - The combineReducers helper function turns an object whose values are different reducing functions into a single reducing function you can pass to createStore.
@@ -85,18 +88,20 @@ Example:
 - The resulting reducer calls every child reducer, and gathers their results into a single state object. The shape of the state object matches the keys of the passed reducers.
 
 Example:
-`import { createStore, combineReducers } from 'redux'
+```
+import { createStore, combineReducers } from 'redux'
 
 var reducer = combineReducers({
     user: userReducer,
     items: itemsReducer
 })
 
-var store = createStore(reducer)`
+var store = createStore(reducer)
+```
 
 
 ***Note that:
 
-- We don’t mutate the state. We create a copy with Object.assign(). Object.assign(state, { visibilityFilter: action.filter }) is also wrong: it will mutate the first argument. You must supply an empty object as the first parameter. You can also enable the object spread operator proposal to write { ...state, ...newState } instead.
+- We don’t mutate the state. We create a copy with `Object.assign()`. `Object.assign(state, { visibilityFilter: action.filter })` is also wrong: it will mutate the first argument. You must supply an empty object as the first parameter. You can also enable the object spread operator proposal to write `{ ...state, ...newState }` instead.
 
 - We return the previous state in the default case. It’s important to return the previous state for any unknown action.

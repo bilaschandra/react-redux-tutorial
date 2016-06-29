@@ -1,5 +1,5 @@
 {
-  "name": "redux-example",
+  "name": "react-redux-example",
   "version": "1.0.0",
   "description": "Sample Redux project.",
   "main": "index.js",

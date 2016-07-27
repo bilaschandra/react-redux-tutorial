@@ -45,6 +45,7 @@ For example, in a TODO list app, when we create a new todo item, we actually cha
 How does Redux Work?
 
 Redux can be broken down into the following:
+
 – store: manages the states. Mainly there is a dispatch method to dispatch an action. In a Redux app, you can obtain its states via `store.getState()`
 – middleware: the middleman between a `store.dispatch()` and a reducer. Its purpose is to intercept an action that has been dispatched, and modify or even cancel the action before it reaches the reducer.
 

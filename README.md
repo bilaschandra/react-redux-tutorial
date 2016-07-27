@@ -105,3 +105,11 @@ var store = createStore(reducer)
 - We don’t mutate the state. We create a copy with `Object.assign()`. `Object.assign(state, { visibilityFilter: action.filter })` is also wrong: it will mutate the first argument. You must supply an empty object as the first parameter. You can also enable the object spread operator proposal to write `{ ...state, ...newState }` instead.
 
 - We return the previous state in the default case. It’s important to return the previous state for any unknown action.
+
+### SUMMARY:
+- Basic Redux
+- Reducer
+- Combine Reducer
+- Action & Action Type
+- middleware (store.dispatch())
+

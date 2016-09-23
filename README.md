@@ -33,6 +33,10 @@ Enjoy!
 
 Basic Content
 ==================
+
+Installing Redux
+ - npm install --save react-redux    
+
 What is Redux?
 
 - Redux is a framework that controls states in a JavaScript app. According to the official site:
